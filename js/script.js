@@ -1,3 +1,22 @@
+const orbit = document.getElementById("orbit");
+const logos = orbit.children;
+const count = logos.length;
+const radius = 300; // jarak logo dari pusat (px)
+const angleStep = 360 / count;
+
+// Set posisi awal logo di sekitar pusat (diam)
+for (let i = 0; i < count; i++) {
+  const angle = i * angleStep;
+  logos[i].style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+}
+
+// Auto-rotate semua logo dalam orbit
+let current = 0;
+setInterval(() => {
+  current += 0.3; // kecepatan
+  orbit.style.transform = `rotateY(${current}deg)`;
+}, 30);
+
 const navbar = document.querySelector("nav");
 const links = document.querySelectorAll("nav a[href^='#']");
 const offset = navbar.offsetHeight + 10;
@@ -58,3 +77,20 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+// const carousel = document.getElementById("carousel3d");
+//   const items = carousel.children;
+//   const itemCount = items.length;
+//   const angle = 360 / itemCount;
+
+//   // Atur posisi item mengelilingi lingkaran
+//   for (let i = 0; i < itemCount; i++) {
+//     items[i].style.transform = `rotateY(${i * angle}deg) translateZ(200px)`;
+//   }
+
+//   // Animasi rotasi otomatis
+//   let currentAngle = 0;
+//   setInterval(() => {
+//     currentAngle += 0.5;
+//     carousel.style.transform = `rotateY(${currentAngle}deg)`;
+//   }, 30);
