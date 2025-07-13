@@ -1,21 +1,38 @@
 const orbit = document.getElementById("orbit");
 const logos = orbit.children;
-const count = logos.length;
-const radius = 300; // jarak logo dari pusat (px)
-const angleStep = 360 / count;
+const n = logos.length;
+const radius = 360; // jarak dari pusat
+const base = [];
 
-// Set posisi awal logo di sekitar pusat (diam)
-for (let i = 0; i < count; i++) {
-  const angle = i * angleStep;
-  logos[i].style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+for (let i = 0; i < n; i++) {
+  base[i] = (i * 360) / n;
+  logos[i].classList.add("transition-all", "duration-300", "ease-in-out");
 }
 
-// Auto-rotate semua logo dalam orbit
-let current = 0;
-setInterval(() => {
-  current += 0.3; // kecepatan
-  orbit.style.transform = `rotateY(${current}deg)`;
-}, 30);
+let rot = 0;
+function animate() {
+  rot += 0.3; // ✅ perbaikan: biarkan terus bertambah
+
+  for (let i = 0; i < n; i++) {
+    const theta = base[i] + rot;
+
+    // Tetap menghadap depan
+    logos[
+      i
+    ].style.transform = `rotateY(${theta}deg) translateZ(${radius}px) rotateY(${-theta}deg)`;
+
+    // Blur jika di belakang (90–270)
+    const rel = ((theta % 360) + 360) % 360; // pastikan selalu positif
+    const isBack = rel > 120 && rel < 270;
+
+    logos[i].style.filter = isBack ? "blur(2px) brightness(80%)" : "none";
+    logos[i].style.zIndex = isBack ? "0" : "1";
+  }
+
+  requestAnimationFrame(animate);
+}
+
+animate();
 
 const navbar = document.querySelector("nav");
 const links = document.querySelectorAll("nav a[href^='#']");
