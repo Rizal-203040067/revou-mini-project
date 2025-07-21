@@ -15,7 +15,7 @@
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
           <img
-            src="https://flowbite.com/docs/images/logo.svg"
+            src="assets/logo-fill.svg"
             class="h-8"
             alt="Rizal Baihaqi Logo" />
           <span
@@ -71,7 +71,7 @@
             </li>
             <li>
               <a
-                href="#"
+                href="#project"
                 class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >Projetcs</a
               >
@@ -90,7 +90,7 @@
 
     <header
       id="home"
-      class="max-w-screen-xl flex items-center mx-auto p-4 bg-white border-gray-200 dark:bg-gray-900">
+      class="max-w-screen-xl flex items-center mx-auto p-4 bg-white border-gray-200 dark:bg-gray-900 scroll-mt-18">
       <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 items-center">
           <div
@@ -130,7 +130,7 @@
       </div>
     </section> -->
 
-    <section id="about">
+    <section id="about" class="scroll-mt-12">
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div class="container mx-auto">
@@ -188,8 +188,8 @@
     </section>
 
     <!-- 3D Carousel Container -->
-    <section class="py-12 bg-white" id="skills">
-      <div class="text-center mb-8">
+    <section id="skill" class="py-8 bg-white scroll-mt-18">
+      <div class="text-center mb-6">
         <h2 class="text-3xl font-bold">My Tech Stack</h2>
         <p class="text-gray-600">Bahasa & tools yang saya gunakan</p>
       </div>
@@ -254,174 +254,225 @@
       </div>
     </section>
 
-    <!-- <section id="project"></section> -->
-
-    <section id="contact">
-      <div class="max-w-screen-xl text-center mx-auto rounded-full p-4">
-        <div
-          class="isolate w-full rounded-lg items-center gap-8 bg-gradient-to-br from-sky-100 to-blue-200 px-4 px-6 py-24 sm:py-32 lg:px-8">
-          <div class="mx-auto max-w-2xl text-center">
-            <h2
-              class="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">
-              Contact Us
-            </h2>
-            <p class="mt-2 text-lg/8 text-gray-600">
-              Aute magna irure deserunt veniam aliqua magna enim voluptate.
-            </p>
+    <section id="project" class="bg-white pb-8 scroll-mt-24">
+      <div class="max-w-screen-xl mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12">My Projects</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="group relative overflow-hidden rounded-lg shadow-lg border border-gray-200">
+            <img
+              src="https://images.unsplash.com/photo-1530435460869-d13625c69bbf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="w-full h-60 object-cover transition-transform group-hover:scale-110 duration-300"
+              alt="Project 1" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2">Project One</h3>
+              <p class="text-sm text-gray-600">
+                Web App built with React & Tailwind CSS.
+              </p>
+            </div>
           </div>
-          <form
-            action="#"
-            method="POST"
-            class="mx-auto mt-16 max-w-xl sm:mt-20">
-            <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+
+          <div
+            class="group relative overflow-hidden rounded-lg shadow-lg border border-gray-200">
+            <img
+              src="https://images.unsplash.com/photo-1530435460869-d13625c69bbf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="w-full h-60 object-cover transition-transform group-hover:scale-110 duration-300"
+              alt="Project 2" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2">Project Two</h3>
+              <p class="text-sm text-gray-600">
+                Landing Page for SaaS platform.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group relative overflow-hidden rounded-lg shadow-lg border border-gray-200">
+            <img
+              src="https://images.unsplash.com/photo-1530435460869-d13625c69bbf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="w-full h-60 object-cover transition-transform group-hover:scale-110 duration-300"
+              alt="Project 3" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold mb-2">Project Three</h3>
+              <p class="text-sm text-gray-600">
+                UI/UX Design for mobile banking app.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="scroll-mt-20 py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="bg-gradient-to-br from-sky-100 to-blue-200 rounded-lg shadow-md p-8 sm:p-10">
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Bagian Kiri: Info -->
+            <div class="flex flex-col justify-center space-y-6">
               <div>
-                <label
-                  for="first-name"
-                  class="block text-sm/6 font-semibold text-gray-900"
-                  >First name</label
-                >
-                <div class="mt-2.5">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">
+                  Get in Touch
+                </h2>
+                <p class="text-sm text-gray-600">
+                  Feel free to reach out for collaborations, questions, or just
+                  to say hi! We’d love to hear from you.
+                </p>
+              </div>
+
+              <div class="text-sm text-gray-700 space-y-3">
+                <p class="flex items-center gap-2">
+                  <svg
+                    class="w-5 h-5 text-blue-500"
+                    fill="currentColor"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M2 5a2 2 0 012-2h16a2 2 0 012 2v0.5L12 13 2 5.5V5z" />
+                    <path
+                      d="M2 8.5L12 16l10-7.5V19a2 2 0 01-2 2H4a2 2 0 01-2-2V8.5z" />
+                  </svg>
+                  contact@raizell.com
+                </p>
+                <p class="flex items-center gap-2">
+                  <svg
+                    class="w-5 h-5 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 4.5l6.75 6.75M21.75 4.5l-6.75 6.75m0 0L12 15l-2.25-3.75m9-6.75H6.75a2.25 2.25 0 00-2.25 2.25v13.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25v-13.5a2.25 2.25 0 00-2.25-2.25z" />
+                  </svg>
+                  +62 812 3456 7890
+                </p>
+                <p class="flex items-center gap-2">
+                  <svg
+                    class="w-5 h-5 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.657 16.657L13.414 12l4.243-4.243m0 8.485L12 12m5.657 4.243a9 9 0 11-12.728-12.728 9 9 0 0112.728 12.728z" />
+                  </svg>
+                  Bandung, Indonesia
+                </p>
+              </div>
+
+              <div class="pt-4">
+                <p class="text-sm font-semibold text-gray-700 mb-2">
+                  Follow Us
+                </p>
+                <div class="flex gap-4">
+                  <a href="#" class="text-blue-600 hover:text-blue-800">
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24">
+                      <path
+                        d="M22.46 6c-.77.35-1.6.58-2.46.69a4.28 4.28 0 001.88-2.37 8.38 8.38 0 01-2.71 1.03 4.24 4.24 0 00-7.2 3.87A12 12 0 013 4.6a4.24 4.24 0 001.31 5.65 4.25 4.25 0 01-1.92-.53v.05a4.25 4.25 0 003.4 4.17 4.27 4.27 0 01-1.91.07 4.25 4.25 0 003.96 2.95A8.5 8.5 0 012 18.58a12 12 0 006.29 1.84c7.55 0 11.68-6.26 11.68-11.68 0-.18 0-.36-.01-.54A8.35 8.35 0 0022.46 6z" />
+                    </svg>
+                  </a>
+                  <a href="#" class="text-blue-800 hover:text-blue-900">
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24">
+                      <path
+                        d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 4.41 3.61 8.19 8.24 9.82v-6.94h-2.48v-2.88h2.48v-2.2c0-2.45 1.48-3.8 3.66-3.8 1.06 0 2.17.19 2.17.19v2.38h-1.22c-1.2 0-1.57.75-1.57 1.52v1.91h2.68l-.43 2.88h-2.25v6.94c4.63-1.63 8.24-5.41 8.24-9.82 0-5.5-4.46-9.96-9.96-9.96z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bagian Kanan: Form -->
+            <form action="#" method="POST" class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    for="first-name"
+                    class="block text-sm font-medium text-gray-700"
+                    >First Name</label
+                  >
                   <input
                     type="text"
-                    name="first-name"
                     id="first-name"
+                    name="first-name"
                     autocomplete="given-name"
-                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
+                    class="mt-1 bg-white w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:ring focus:ring-blue-300" />
                 </div>
-              </div>
-              <div>
-                <label
-                  for="last-name"
-                  class="block text-sm/6 font-semibold text-gray-900"
-                  >Last name</label
-                >
-                <div class="mt-2.5">
+                <div>
+                  <label
+                    for="last-name"
+                    class="block text-sm font-medium text-gray-700"
+                    >Last Name</label
+                  >
                   <input
                     type="text"
-                    name="last-name"
                     id="last-name"
+                    name="last-name"
                     autocomplete="family-name"
-                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
+                    class="mt-1 bg-white w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:ring focus:ring-blue-300" />
                 </div>
               </div>
-              <div class="sm:col-span-2">
-                <label
-                  for="company"
-                  class="block text-sm/6 font-semibold text-gray-900"
-                  >Company</label
-                >
-                <div class="mt-2.5">
-                  <input
-                    type="text"
-                    name="company"
-                    id="company"
-                    autocomplete="organization"
-                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
-                </div>
-              </div>
-              <div class="sm:col-span-2">
+
+              <div>
                 <label
                   for="email"
-                  class="block text-sm/6 font-semibold text-gray-900"
+                  class="block text-sm font-medium text-gray-700"
                   >Email</label
                 >
-                <div class="mt-2.5">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    autocomplete="email"
-                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
-                </div>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  class="mt-1 bg-white w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:ring focus:ring-blue-300" />
               </div>
-              <div class="sm:col-span-2">
-                <label
-                  for="phone-number"
-                  class="block text-sm/6 font-semibold text-gray-900"
-                  >Phone number</label
-                >
-                <div class="mt-2.5">
-                  <div
-                    class="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
-                    <div
-                      class="grid shrink-0 grid-cols-1 focus-within:relative">
-                      <select
-                        id="country"
-                        name="country"
-                        autocomplete="country"
-                        aria-label="Country"
-                        class="col-start-1 row-start-1 w-full appearance-none rounded-md py-2 pr-7 pl-3.5 text-base text-gray-500 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
-                        <option>US</option>
-                        <option>CA</option>
-                        <option>EU</option>
-                      </select>
-                      <svg
-                        class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4"
-                        viewBox="0 0 16 16"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        data-slot="icon">
-                        <path
-                          fill-rule="evenodd"
-                          d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
-                          clip-rule="evenodd" />
-                      </svg>
-                    </div>
-                    <input
-                      type="text"
-                      name="phone-number"
-                      id="phone-number"
-                      class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
-                      placeholder="123-456-7890" />
-                  </div>
-                </div>
-              </div>
-              <div class="sm:col-span-2">
+
+              <div>
                 <label
                   for="message"
-                  class="block text-sm/6 font-semibold text-gray-900"
+                  class="block text-sm font-medium text-gray-700"
                   >Message</label
                 >
-                <div class="mt-2.5">
-                  <textarea
-                    name="message"
-                    id="message"
-                    rows="4"
-                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"></textarea>
-                </div>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  class="mt-1 bg-white w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:ring focus:ring-blue-300"></textarea>
               </div>
-              <div class="flex gap-x-4 sm:col-span-2">
-                <div class="flex h-6 items-center">
-                  <div
-                    class="group relative inline-flex w-8 shrink-0 rounded-full bg-gray-200 p-px inset-ring inset-ring-gray-900/5 outline-offset-2 outline-indigo-600 transition-colors duration-200 ease-in-out has-checked:bg-indigo-600 has-focus-visible:outline-2">
-                    <span
-                      class="size-4 rounded-full bg-white shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out group-has-checked:translate-x-3.5"></span>
-                    <input
-                      type="checkbox"
-                      class="absolute inset-0 appearance-none focus:outline-hidden"
-                      aria-label="Agree to policies"
-                      id="agree-to-policies"
-                      name="agree-to-policies" />
-                  </div>
-                </div>
-                <label class="text-sm/6 text-gray-600" for="agree-to-policies">
-                  By selecting this, you agree to our
+
+              <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  id="agree"
+                  name="agree"
+                  class="mt-1 mr-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+                <label for="agree" class="text-sm text-gray-600">
+                  I agree to the
                   <a
                     href="#"
-                    class="font-semibold whitespace-nowrap text-indigo-600"
+                    class="text-indigo-600 font-medium hover:underline"
                     >privacy policy</a
                   >.
                 </label>
               </div>
-            </div>
-            <div class="mt-10">
-              <button
-                type="submit"
-                class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                Let's talk
-              </button>
-            </div>
-          </form>
+
+              <div>
+                <button
+                  type="submit"
+                  class="w-full inline-flex justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
