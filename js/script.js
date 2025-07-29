@@ -1,28 +1,42 @@
 const orbit = document.getElementById("orbit");
 const logos = orbit.children;
 const n = logos.length;
-const radius = 360; // jarak dari pusat
 const base = [];
+let radius = 360; // akan ditentukan ulang di updateRadius()
 
+// Inisialisasi posisi awal
 for (let i = 0; i < n; i++) {
   base[i] = (i * 360) / n;
   logos[i].classList.add("transition-all", "duration-300", "ease-in-out");
 }
 
+// Fungsi untuk memperbarui radius berdasarkan ukuran layar
+function updateRadius() {
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth >= 1024) {
+    radius = 360;
+  } else if (screenWidth >= 768) {
+    radius = 300;
+  } else {
+    radius = 240;
+  }
+}
+updateRadius(); // panggil saat pertama kali load
+window.addEventListener("resize", updateRadius); // panggil saat ukuran layar berubah
+
 let rot = 0;
 function animate() {
-  rot += 0.3; // ✅ perbaikan: biarkan terus bertambah
+  rot += 0.3; // rotasi berkelanjutan
 
   for (let i = 0; i < n; i++) {
     const theta = base[i] + rot;
 
-    // Tetap menghadap depan
     logos[
       i
     ].style.transform = `rotateY(${theta}deg) translateZ(${radius}px) rotateY(${-theta}deg)`;
 
-    // Blur jika di belakang (90–270)
-    const rel = ((theta % 360) + 360) % 360; // pastikan selalu positif
+    const rel = ((theta % 360) + 360) % 360;
     const isBack = rel > 120 && rel < 270;
 
     logos[i].style.filter = isBack ? "blur(2px) brightness(80%)" : "none";
