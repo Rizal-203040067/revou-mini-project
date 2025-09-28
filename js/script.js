@@ -2,7 +2,7 @@ const orbit = document.getElementById("orbit");
 const logos = orbit.children;
 const n = logos.length;
 const base = [];
-let radius = 360; // akan ditentukan ulang di updateRadius()
+let radius = 360; // akan disesuaikan saat updateRadius()
 
 // Inisialisasi posisi awal
 for (let i = 0; i < n; i++) {
@@ -10,10 +10,9 @@ for (let i = 0; i < n; i++) {
   logos[i].classList.add("transition-all", "duration-300", "ease-in-out");
 }
 
-// Fungsi untuk memperbarui radius berdasarkan ukuran layar
+// Fungsi untuk menyesuaikan radius berdasarkan ukuran layar
 function updateRadius() {
   const screenWidth = window.innerWidth;
-
   if (screenWidth >= 1024) {
     radius = 360;
   } else if (screenWidth >= 768) {
@@ -22,24 +21,26 @@ function updateRadius() {
     radius = 240;
   }
 }
-updateRadius(); // panggil saat pertama kali load
-window.addEventListener("resize", updateRadius); // panggil saat ukuran layar berubah
+updateRadius();
+window.addEventListener("resize", updateRadius);
 
-let rot = 0;
+// Set rotasi awal supaya langsung terlihat berputar
+let rot = 30; // mulai sedikit miring agar tidak diam di depan
+
 function animate() {
-  rot += 0.3; // rotasi berkelanjutan
+  rot += 0.3; // kecepatan rotasi
 
   for (let i = 0; i < n; i++) {
     const theta = base[i] + rot;
 
-    logos[
-      i
-    ].style.transform = `rotateY(${theta}deg) translateZ(${radius}px) rotateY(${-theta}deg)`;
+    // Orbit 3D + selalu menghadap depan
+    logos[i].style.transform = `rotateY(${theta}deg) translateZ(${radius}px) rotateY(${-theta}deg)`;
 
+    // Tambahkan blur jika di belakang
     const rel = ((theta % 360) + 360) % 360;
     const isBack = rel > 120 && rel < 270;
-
-    logos[i].style.filter = isBack ? "blur(2px) brightness(80%)" : "none";
+    logos[i].style.transition = "filter 0.4s ease-in-out";
+    logos[i].style.filter = isBack ? "blur(50px) brightness(70%)" : "none";
     logos[i].style.zIndex = isBack ? "0" : "1";
   }
 
@@ -47,6 +48,7 @@ function animate() {
 }
 
 animate();
+
 
 const navbar = document.querySelector("nav");
 const links = document.querySelectorAll("nav a[href^='#']");
@@ -92,22 +94,54 @@ window.addEventListener("scroll", () => {
     ) {
       links.forEach((l) =>
         l.classList.remove(
-          "md:text-blue-700",
-          "md:dark:text-blue-500",
+          "md:text-orange-400",
+          "md:dark:text-orange-500",
           "font-semibold"
         )
       );
       const active = document.querySelector(`nav a[href="#${section.id}"]`);
       if (active) {
         active.classList.add(
-          "md:text-blue-700",
-          "md:dark:text-blue-500",
+          "md:text-orange-400",
+          "md:dark:text-orange-500",
           "font-semibold"
         );
       }
     }
   });
 });
+
+// Dark Mode Toggle
+const themeToggle = document.getElementById("theme-toggle");
+
+// Load saved theme from localStorage
+if (localStorage.getItem("theme") === "dark") {
+  document.documentElement.classList.add("dark");
+} else {
+  document.documentElement.classList.remove("dark");
+}
+
+// Toggle theme on button click
+themeToggle.addEventListener("click", () => {
+  document.documentElement.classList.toggle("dark");
+
+  // Save user preference
+  if (document.documentElement.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+    themeToggle.textContent = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    themeToggle.textContent = "🌙";
+  }
+});
+
+// Update icon based on current theme on load
+if (document.documentElement.classList.contains("dark")) {
+  themeToggle.textContent = "☀️";
+} else {
+  themeToggle.textContent = "🌙";
+}
+
 
 // const carousel = document.getElementById("carousel3d");
 //   const items = carousel.children;
