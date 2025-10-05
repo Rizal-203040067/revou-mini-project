@@ -5,41 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <style>
-    /* 🔥 Subtle Gradient Animation */
-    @keyframes gradientMove {
-      0%, 100% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-    }
-    .bg-animate {
-      background-size: 200% 200%;
-      animation: gradientMove 20s ease infinite;
-    }
-
-    /* 🌱 Floating Blobs Animation */
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0px) translateX(0px);
-      }
-      50% {
-        transform: translateY(-20px) translateX(10px);
-      }
-    }
-    .animate-float {
-      animation: float 10s ease-in-out infinite;
-    }
-    .animate-float-slow {
-      animation: float 15s ease-in-out infinite;
-    }
-    .animate-float-slower {
-      animation: float 25s ease-in-out infinite;
-    }
-  </style>
-
     <style type="text/tailwindcss">
       @custom-variant dark (&:where(.dark, .dark *));
       /* keep browser form-controls etc. in light mode */
@@ -56,7 +21,7 @@
   </head>
   <body class="relative bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 overflow-x-hidden">
     <!-- 🌈 Dynamic Background Gradient -->
-    <div class="absolute inset-0 -z-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 
+    <div class="absolute inset-0 -z-20 bg-gradient-to-br from-amber-50 via-white to-orange-50 
                 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 bg-animate"></div>
 
     <!-- 🫧 Floating Gradient Blobs -->
@@ -65,7 +30,7 @@
                 rounded-full blur-3xl opacity-30 animate-float-slow"></div>
 
     <div class="absolute -z-20 top-40 -right-20 w-[28rem] h-[28rem] 
-                bg-gradient-to-r from-sky-300 via-blue-200 to-cyan-200 
+                bg-gradient-to-r from-orange-300 via-amber-200 to-yellow-200 
                 rounded-full blur-3xl opacity-30 animate-float"></div>
 
     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[20rem] h-[20rem] 
@@ -115,10 +80,7 @@
             </svg>
           </button>
 
-          <button id="theme-toggle" class="p-2 rounded-lg border hover:bg-gray-200 dark:hover:bg-gray-700">
-    🌙
-  </button>
-
+          <button id="theme-toggle" class="p-2 rounded-lg border hover:bg-gray-200 dark:hover:bg-gray-700">🌙</button>
 
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul
@@ -166,7 +128,7 @@
 
       <header
         id="home"
-        class="max-w-screen-xl flex items-center mx-auto p-4 bg-white border-gray-200 dark:bg-transparent scroll-mt-18">
+        class="max-w-screen-xl flex items-center mx-auto p-4 border-gray-200 scroll-mt-18">
         <div class="container mx-auto">
           <div class="grid grid-cols-1 md:grid-cols-2 items-center">
             <div
@@ -446,7 +408,6 @@
           </div>
         </div>
       </section>
-
 
       <section id="contact" class="bg-gradient-to-b from-gray-50 to-white dark:from-black dark:to-transparent scroll-mt-20 py-16">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
