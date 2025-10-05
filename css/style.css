@@ -5,41 +5,6 @@
   transform-style: preserve-3d;
 }
 
-/* 🔥 Subtle Gradient Animation */
-@keyframes gradientMove {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-.bg-animate {
-  background-size: 200% 200%;
-  animation: gradientMove 20s ease infinite;
-}
-
-/* 🌱 Floating Blobs Animation */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) translateX(0px);
-  }
-  50% {
-    transform: translateY(-20px) translateX(10px);
-  }
-}
-.animate-float {
-  animation: float 10s ease-in-out infinite;
-}
-.animate-float-slow {
-  animation: float 15s ease-in-out infinite;
-}
-.animate-float-slower {
-  animation: float 25s ease-in-out infinite;
-}
-
 /* #skill .relative {
   perspective: 1000px;
 }

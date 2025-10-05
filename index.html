@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <style>
+    /* 🔥 Subtle Gradient Animation */
+    @keyframes gradientMove {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+    .bg-animate {
+      background-size: 200% 200%;
+      animation: gradientMove 20s ease infinite;
+    }
+
+    /* 🌱 Floating Blobs Animation */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) translateX(0px);
+      }
+      50% {
+        transform: translateY(-20px) translateX(10px);
+      }
+    }
+    .animate-float {
+      animation: float 10s ease-in-out infinite;
+    }
+    .animate-float-slow {
+      animation: float 15s ease-in-out infinite;
+    }
+    .animate-float-slower {
+      animation: float 25s ease-in-out infinite;
+    }
+  </style>
+
     <style type="text/tailwindcss">
       @custom-variant dark (&:where(.dark, .dark *));
       /* keep browser form-controls etc. in light mode */
