@@ -34,7 +34,9 @@ function animate() {
     const theta = base[i] + rot;
 
     // Orbit 3D + selalu menghadap depan
-    logos[i].style.transform = `rotateY(${theta}deg) translateZ(${radius}px) rotateY(${-theta}deg)`;
+    logos[
+      i
+    ].style.transform = `rotateY(${theta}deg) translateZ(${radius}px) rotateY(${-theta}deg)`;
 
     // Tambahkan blur jika di belakang
     const rel = ((theta % 360) + 360) % 360;
@@ -49,10 +51,9 @@ function animate() {
 
 animate();
 
-
 const navbar = document.querySelector("nav");
 const links = document.querySelectorAll("nav a[href^='#']");
-const offset = navbar.offsetHeight + 10;
+const offset = navbar.offsetHeight + 50;
 
 // Sticky scroll effect (shadow + bg change)
 window.addEventListener("scroll", () => {
@@ -73,39 +74,46 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Smooth scroll (native + fallback Safari)
+// Smooth scroll
 links.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
     const target = document.querySelector(link.getAttribute("href"));
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
+
+      // Close mobile menu after clicking
+      const menu = document.getElementById("navbar-default");
+      if (window.innerWidth < 768) {
+        menu.classList.add("hidden");
+      }
     }
   });
 });
 
-// Scrollspy: aktifkan link saat scroll
+// Scrollspy for light + dark mode
 window.addEventListener("scroll", () => {
   const position = window.scrollY + offset;
+
   document.querySelectorAll("section[id]").forEach((section) => {
     if (
       position >= section.offsetTop &&
       position < section.offsetTop + section.offsetHeight
     ) {
-      links.forEach((l) =>
-        l.classList.remove(
-          "md:text-orange-400",
-          "md:dark:text-orange-500",
-          "font-semibold"
-        )
-      );
+      links.forEach((l) => {
+        // Remove active classes
+        l.classList.remove("text-orange-400", "font-semibold");
+        l.classList.remove("dark:text-orange-400"); // remove old active dark color
+        // Reset to default dark mode color
+        l.classList.add("dark:text-white");
+      });
+
       const active = document.querySelector(`nav a[href="#${section.id}"]`);
       if (active) {
-        active.classList.add(
-          "md:text-orange-400",
-          "md:dark:text-orange-500",
-          "font-semibold"
-        );
+        // Add active classes
+        active.classList.add("text-orange-400", "font-semibold");
+        active.classList.remove("dark:text-white"); // remove default dark color
+        active.classList.add("dark:text-orange-400"); // add active dark color
       }
     }
   });
@@ -142,20 +150,39 @@ if (document.documentElement.classList.contains("dark")) {
   themeToggle.textContent = "🌙";
 }
 
+// Navbar menu toggle for mobile
+//
 
-// const carousel = document.getElementById("carousel3d");
-//   const items = carousel.children;
-//   const itemCount = items.length;
-//   const angle = 360 / itemCount;
+const menuToggle = document.querySelector("[data-collapse-toggle]");
+const menu = document.getElementById("navbar-default");
 
-//   // Atur posisi item mengelilingi lingkaran
-//   for (let i = 0; i < itemCount; i++) {
-//     items[i].style.transform = `rotateY(${i * angle}deg) translateZ(200px)`;
-//   }
+if (menuToggle && menu) {
+  menuToggle.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+    const expanded =
+      menuToggle.getAttribute("aria-expanded") === "true" || false;
+    menuToggle.setAttribute("aria-expanded", !expanded);
+  });
+}
 
-//   // Animasi rotasi otomatis
-//   let currentAngle = 0;
-//   setInterval(() => {
-//     currentAngle += 0.5;
-//     carousel.style.transform = `rotateY(${currentAngle}deg)`;
-//   }, 30);
+// const sections = document.querySelectorAll("section");
+// const navLinks = document.querySelectorAll("nav ul li a");
+
+// window.addEventListener("scroll", () => {
+//   let current = "";
+
+//   sections.forEach((section) => {
+//     const sectionTop = section.offsetTop - 100;
+//     const sectionHeight = section.clientHeight;
+//     if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+//       current = section.getAttribute("id");
+//     }
+//   });
+
+//   navLinks.forEach((link) => {
+//     link.classList.remove("text-orange-400", "dark:text-blue-500");
+//     if (link.getAttribute("href") === `#${current}`) {
+//       link.classList.add("text-orange-400", "dark:text-blue-500");
+//     }
+//   });
+// });
