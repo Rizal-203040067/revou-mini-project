@@ -10,11 +10,9 @@ body {
   transform-style: preserve-3d;
 }
 
-/* #skill .relative {
-  perspective: 1000px;
+:root {
+  --navbar-height: 0px;
 }
-#carousel3d > div {
-  top: 50%;
-  left: 50%;
-  transform-origin: center center -200px;
-} */
+body {
+  padding-top: var(--navbar-height);
+}

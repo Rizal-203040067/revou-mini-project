@@ -1,3 +1,16 @@
+function updateNavbarPadding() {
+  const navbar = document.querySelector("nav");
+  if (navbar) {
+    document.documentElement.style.setProperty(
+      "--navbar-height",
+      navbar.offsetHeight + "px"
+    );
+  }
+}
+
+window.addEventListener("load", updateNavbarPadding);
+window.addEventListener("resize", updateNavbarPadding);
+
 const orbit = document.getElementById("orbit");
 const logos = orbit.children;
 const n = logos.length;
