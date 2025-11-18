@@ -64,72 +64,81 @@ function animate() {
 
 animate();
 
-const navbar = document.querySelector("nav");
-const links = document.querySelectorAll("nav a[href^='#']");
-const offset = navbar.offsetHeight + 50;
+document.addEventListener("DOMContentLoaded", () => {
+  const navbar = document.querySelector("nav");
+  const links = document.querySelectorAll("nav a[href^='#']");
+  const sections = document.querySelectorAll("section[id]");
 
-// Sticky scroll effect (shadow + bg change)
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 10) {
-    navbar.classList.add(
-      "shadow-md",
-      "backdrop-blur",
-      "bg-white/80",
-      "dark:bg-gray-900/80"
-    );
-  } else {
-    navbar.classList.remove(
-      "shadow-md",
-      "backdrop-blur",
-      "bg-white/80",
-      "dark:bg-gray-900/80"
-    );
-  }
-});
+  // Smooth scroll (fix for Safari & offset)
+  links.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
 
-// Smooth scroll
-links.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+      const offset = navbar.offsetHeight;
+      const top = target.offsetTop - offset;
 
-      // Close mobile menu after clicking
-      const menu = document.getElementById("navbar-default");
-      if (window.innerWidth < 768) {
-        menu.classList.add("hidden");
-      }
-    }
-  });
-});
-
-// Scrollspy for light + dark mode
-window.addEventListener("scroll", () => {
-  const position = window.scrollY + offset;
-
-  document.querySelectorAll("section[id]").forEach((section) => {
-    if (
-      position >= section.offsetTop &&
-      position < section.offsetTop + section.offsetHeight
-    ) {
-      links.forEach((l) => {
-        // Remove active classes
-        l.classList.remove("text-orange-400", "font-semibold");
-        l.classList.remove("dark:text-orange-400"); // remove old active dark color
-        // Reset to default dark mode color
-        l.classList.add("dark:text-white");
+      window.scrollTo({
+        top,
+        behavior: "smooth",
       });
-
-      const active = document.querySelector(`nav a[href="#${section.id}"]`);
-      if (active) {
-        // Add active classes
-        active.classList.add("text-orange-400", "font-semibold");
-        active.classList.remove("dark:text-white"); // remove default dark color
-        active.classList.add("dark:text-orange-400"); // add active dark color
-      }
-    }
+    });
   });
+
+  // Scrollspy (dynamic offset)
+  const activateLink = () => {
+    const navbarHeight = navbar.offsetHeight;
+
+    const offset =
+      window.innerWidth < 768 ? navbarHeight - 5 : navbarHeight + 10;
+
+    const position = window.scrollY + offset;
+
+    sections.forEach((section) => {
+      if (
+        position >= section.offsetTop &&
+        position < section.offsetTop + section.offsetHeight
+      ) {
+        // Reset all links to their default (inactive) state:
+        links.forEach((l) => {
+          // Remove any active classes
+          l.classList.remove(
+            "text-orange-400",
+            "dark:text-orange-500",
+            "md:text-orange-400",
+            "md:dark:text-orange-500",
+            "font-semibold"
+          );
+
+          // Ensure default inactive classes are present (adjust if your markup differs)
+          // e.g., your HTML uses `text-gray-900` and `dark:text-white` by default
+          l.classList.add("text-gray-900");
+          l.classList.add("dark:text-white");
+        });
+
+        // Add active classes for the matched section
+        const active = document.querySelector(`nav a[href="#${section.id}"]`);
+        if (active) {
+          // Remove default dark color so active dark color can show
+          active.classList.remove("dark:text-white");
+
+          // Remove default light color if you want active color to fully replace it
+          active.classList.remove("text-gray-900");
+
+          // Add active colors for mobile and md+ plus bold
+          active.classList.add("text-orange-400"); // mobile/light active
+          active.classList.add("dark:text-orange-500"); // mobile/dark active
+          active.classList.add("md:text-orange-400"); // md+ light active
+          active.classList.add("md:dark:text-orange-500"); // md+ dark active
+          active.classList.add("font-semibold");
+        }
+      }
+    });
+  };
+
+  window.addEventListener("scroll", activateLink);
+  activateLink(); // run on load
 });
 
 // Dark Mode Toggle
@@ -177,25 +186,3 @@ if (menuToggle && menu) {
     menuToggle.setAttribute("aria-expanded", !expanded);
   });
 }
-
-// const sections = document.querySelectorAll("section");
-// const navLinks = document.querySelectorAll("nav ul li a");
-
-// window.addEventListener("scroll", () => {
-//   let current = "";
-
-//   sections.forEach((section) => {
-//     const sectionTop = section.offsetTop - 100;
-//     const sectionHeight = section.clientHeight;
-//     if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-//       current = section.getAttribute("id");
-//     }
-//   });
-
-//   navLinks.forEach((link) => {
-//     link.classList.remove("text-orange-400", "dark:text-blue-500");
-//     if (link.getAttribute("href") === `#${current}`) {
-//       link.classList.add("text-orange-400", "dark:text-blue-500");
-//     }
-//   });
-// });
