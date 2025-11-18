@@ -67,7 +67,7 @@ animate();
 document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.querySelector("nav");
   const links = document.querySelectorAll("nav a[href^='#']");
-  const sections = document.querySelectorAll("section[id]");
+  const sections = document.querySelectorAll("section[id], header[id]"); // <- include header
 
   // Smooth scroll (fix for Safari & offset)
   links.forEach((link) => {
@@ -100,9 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         position >= section.offsetTop &&
         position < section.offsetTop + section.offsetHeight
       ) {
-        // Reset all links to their default (inactive) state:
         links.forEach((l) => {
-          // Remove any active classes
           l.classList.remove(
             "text-orange-400",
             "dark:text-orange-500",
@@ -110,28 +108,19 @@ document.addEventListener("DOMContentLoaded", () => {
             "md:dark:text-orange-500",
             "font-semibold"
           );
-
-          // Ensure default inactive classes are present (adjust if your markup differs)
-          // e.g., your HTML uses `text-gray-900` and `dark:text-white` by default
-          l.classList.add("text-gray-900");
-          l.classList.add("dark:text-white");
+          l.classList.add("text-gray-900", "dark:text-white");
         });
 
-        // Add active classes for the matched section
         const active = document.querySelector(`nav a[href="#${section.id}"]`);
         if (active) {
-          // Remove default dark color so active dark color can show
-          active.classList.remove("dark:text-white");
-
-          // Remove default light color if you want active color to fully replace it
-          active.classList.remove("text-gray-900");
-
-          // Add active colors for mobile and md+ plus bold
-          active.classList.add("text-orange-400"); // mobile/light active
-          active.classList.add("dark:text-orange-500"); // mobile/dark active
-          active.classList.add("md:text-orange-400"); // md+ light active
-          active.classList.add("md:dark:text-orange-500"); // md+ dark active
-          active.classList.add("font-semibold");
+          active.classList.remove("dark:text-white", "text-gray-900");
+          active.classList.add(
+            "text-orange-400",
+            "dark:text-orange-500",
+            "md:text-orange-400",
+            "md:dark:text-orange-500",
+            "font-semibold"
+          );
         }
       }
     });
