@@ -164,14 +164,14 @@ if (document.documentElement.classList.contains("dark")) {
 // Navbar menu toggle for mobile
 //
 
-const menuToggle = document.querySelector("[data-collapse-toggle]");
-const menu = document.getElementById("navbar-default");
+// const menuToggle = document.querySelector("[data-collapse-toggle]");
+// const menu = document.getElementById("navbar-default");
 
-if (menuToggle && menu) {
-  menuToggle.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-    const expanded =
-      menuToggle.getAttribute("aria-expanded") === "true" || false;
-    menuToggle.setAttribute("aria-expanded", !expanded);
-  });
-}
+// if (menuToggle && menu) {
+//   menuToggle.addEventListener("click", () => {
+//     menu.classList.toggle("hidden");
+//     const expanded =
+//       menuToggle.getAttribute("aria-expanded") === "true" || false;
+//     menuToggle.setAttribute("aria-expanded", !expanded);
+//   });
+// }
