@@ -48,6 +48,12 @@
         html { color-scheme: light; }
       }
     </style>
+
+    <!-- Development version -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Production version -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     
     <link rel="stylesheet" href="css/style.css" />
     <title>My Portofolio</title>
@@ -80,7 +86,7 @@
 
     <!-- Top Navigation Bar -->
     <nav
-      class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/40 border border-white/20 shadow-lg dark:bg-gray-900/80">
+      id="top-navbar" class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/40 border border-white/20 shadow-lg dark:bg-gray-900/80">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3 md:p-4 relative">
         <!-- Logo -->
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -113,17 +119,37 @@
 
     <!-- Bottom Navigation Bar -->
     <nav
-      class="fixed md:hidden bottom-0 left-0 w-full z-50 backdrop-blur-md bg-white/40 border border-white/20 shadow-lg dark:bg-gray-900/80">
-      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3 md:p-4 relative">
+      id="bottom-navbar" class="fixed md:hidden bottom-0 left-0 w-full z-50 backdrop-blur-md bg-white/40 border border-white/20 shadow-lg dark:bg-gray-900/80">
+      <div class="max-w-screen-xl flex flex-wrap items-center mx-auto p-3 relative">
         <!-- Navbar Links -->
-        <div class="w-full md:block md:w-auto" id="navbar-default">
+        <div class="w-full" id="navbar-default">
           <ul
-            class="font-medium flex flex-row items-center gap-2 p-4 md:p-0 mt-4 border border-gray-400 rounded-lg md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700 transition-all duration-300">
-            <li><a href="#home" class="block py-2 px-3 text-gray-900 rounded-sm hover:text-orange-400 dark:text-white">Home</a></li>
-            <li><a href="#about" class="block py-2 px-3 text-gray-900 rounded-sm hover:text-orange-400 dark:text-white">About</a></li>
-            <li><a href="#skill" class="block py-2 px-3 text-gray-900 rounded-sm hover:text-orange-400 dark:text-white">Skills</a></li>
-            <li><a href="#project" class="block py-2 px-3 text-gray-900 rounded-sm hover:text-orange-400 dark:text-white">Projects</a></li>
-            <li><a href="#contact" class="block py-2 px-3 text-gray-900 rounded-sm hover:text-orange-400 dark:text-white">Contact</a></li>
+            class="font-medium flex justify-between items-center gap-2 p-2 border border-gray-400 rounded-lg md:mt-0 md:border-0 dark:border-gray-700 transition-all duration-300">
+            <li>
+              <a href="#home" class="block py-2 px-3 text-gray-900 rounded-sm hover:text-orange-400 dark:text-white">
+                <i data-lucide="home" class="w-5 h-5 stroke-[1.5]"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#about" class="block py-2 px-3 text-gray-900 rounded-sm hover:text-orange-400 dark:text-white">
+                <i data-lucide="user" class="w-5 h-5 stroke-[1.5]"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#skill" class="block py-2 px-3 text-gray-900 rounded-sm hover:text-orange-400 dark:text-white">
+                <i data-lucide="code-xml" class="w-5 h-5 stroke-[1.5]"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#project" class="block py-2 px-3 text-gray-900 rounded-sm hover:text-orange-400 dark:text-white">
+                <i data-lucide="briefcase" class="w-5 h-5 stroke-[1.5]"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#contact" class="block py-2 px-3 text-gray-900 rounded-sm hover:text-orange-400 dark:text-white">
+                <i data-lucide="mail" class="w-5 h-5 stroke-[1.5]"></i>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -181,53 +207,58 @@
         <div
           class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <div class="container mx-auto">
+            <div class="font-am rounded-2xl p-6 my-0 text-center md:my-6">
+              <h2 class="text-4xl md:text-6xl text-amber-500 font-bold mb-4">About Me</h2>
+              <h3 class="max-w-2xl mx-auto text-amber-400 opacity-90 text-lg md:text-xl text-balance leading-relaxed">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, nisi? Dolores, saepe commodi? Tenetur doloribus nobis officia provident nam itaque, suscipit dicta obcaecati. Assumenda quidem culpa minus quia ea expedita?</h3>
+            </div>
             <div
-              class="min-h-screen w-full rounded-lg grid grid-cols-1 md:grid-cols-2 items-center gap-8 px-4">
+              class="w-full rounded-lg grid grid-cols-1 md:grid-cols-3 items-stretch gap-8 px-4 my-0 md:my-6">
               <div
-                class="min-h-screen bg-gradient-to-br from-amber-100 to-orange-200 shadow-lg rounded-2xl p-6 my-0 text-center text-slate-800 md:my-6">
-                <h2 class="text-4xl font-bold mb-4">About Me</h2>
-                <div class="">
-                  <img
-                    class="rounded-lg"
-                    src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="" />
-                </div>
+                  class="bg-gradient-to-br from-amber-100 to-orange-200 shadow-lg rounded-2xl p-6 w-full text-center text-slate-800">
+                <h2 class="text-3xl font-bold mb-4">My Goals</h2>
+                <ul class="text-lg mx-4 mb-4 list-disc text-left flex-grow">
+                  <li>Building Interactive Web Applications</li>
+                  <li>Designing Appealing User Interfaces</li>
+                  <li>
+                    Publication, Design and Documentation by Smanis Edufair 2022
+                  </li>
+                  <li>
+                    Publication, Design and Documentation by Smanis Edufair 2023
+                  </li>
+                </ul>
               </div>
-
-              <div class="min-h-screen grid grid-rows-2 gap-8 my-0 md:my-6">
-                <div
-                  class="bg-gradient-to-br from-amber-100 to-orange-200 shadow-lg rounded-2xl p-6 w-full text-center text-slate-800">
-                  <h2 class="text-3xl font-bold mb-4">Summary</h2>
-                  <p class="text-md mb-4 text-justify">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Quibusdam, praesentium exercitationem accusantium vel
-                    consequuntur ratione expedita distinctio labore eligendi,
-                    mollitia et tenetur possimus ducimus culpa saepe quisquam! Non
-                    dolores architecto nemo facere exercitationem tempora ex?
-                    Numquam possimus officiis ratione eos modi vel optio
-                    voluptatem porro sint beatae tempora, repudiandae pariatur,
-                    impedit ea! Non voluptates dolorum dignissimos dolores aperiam
-                    molestias similique dicta explicabo, optio iusto quae eaque
-                    cum ullam magnam soluta eius nihil harum provident rerum,
-                    sequi magni laudantium. A, eaque.
-                  </p>
-                </div>
-                <div
-                  class="bg-gradient-to-br from-amber-100 to-orange-200 shadow-lg rounded-2xl p-6 w-full text-center text-slate-800">
-                  <h2 class="text-3xl font-bold mb-4">
-                    Experience and Organization
-                  </h2>
-                  <ul class="text-lg mx-4 mb-4 list-disc text-left">
-                    <li>Coding Camp Software Engineer by RevoU</li>
-                    <li>Web and React Front-End Developer by Dicoding</li>
-                    <li>
-                      Publication, Design and Documentation by Smanis Edufair 2022
-                    </li>
-                    <li>
-                      Publication, Design and Documentation by Smanis Edufair 2023
-                    </li>
-                  </ul>
-                </div>
+              <div
+                class="bg-gradient-to-br from-amber-100 to-orange-200 shadow-lg rounded-2xl p-6 w-full text-center text-slate-800">
+                <h2 class="text-3xl font-bold mb-4">
+                  Currently Learning
+                </h2>
+                <ul class="text-lg mx-4 mb-4 list-disc text-left flex-grow">
+                  <li>Coding Camp Software Engineer by RevoU</li>
+                  <li>Web and React Front-End Developer by Dicoding</li>
+                  <li>
+                    Publication, Design and Documentation by Smanis Edufair 2022
+                  </li>
+                  <li>
+                    Publication, Design and Documentation by Smanis Edufair 2023
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="bg-gradient-to-br from-amber-100 to-orange-200 shadow-lg rounded-2xl p-6 w-full text-center text-slate-800">
+                <h2 class="text-3xl font-bold mb-4">
+                  Certificates
+                </h2>
+                <ul class="text-lg mx-4 mb-4 list-disc text-left flex-grow">
+                  <li>Coding Camp Software Engineer by RevoU</li>
+                  <li>Web and React Front-End Developer by Dicoding</li>
+                  <li>
+                    Publication, Design and Documentation by Smanis Edufair 2022
+                  </li>
+                  <li>
+                    Publication, Design and Documentation by Smanis Edufair 2023
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -598,6 +629,10 @@
         </h1>
       </footer>
     </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
 
     <script src="js/script.js"></script>
   </body>

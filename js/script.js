@@ -1,9 +1,9 @@
 function updateNavbarPadding() {
-  const navbar = document.querySelector("nav");
-  if (navbar) {
+  const topNavbar = document.getElementById("top-navbar");
+  if (topNavbar) {
     document.documentElement.style.setProperty(
       "--navbar-height",
-      navbar.offsetHeight + "px"
+      topNavbar.offsetHeight + "px"
     );
   }
 }
@@ -65,8 +65,13 @@ function animate() {
 animate();
 
 document.addEventListener("DOMContentLoaded", () => {
-  const navbar = document.querySelector("nav");
-  const links = document.querySelectorAll("nav a[href^='#']");
+  const topNavbar = document.getElementById("top-navbar");
+  const bottomNavbar = document.getElementById("bottom-navbar");
+
+  const links = document.querySelectorAll(
+    "#top-navbar a[href^='#'], #bottom-navbar a[href^='#']"
+  );
+
   const sections = document.querySelectorAll("section[id], header[id]"); // <- include header
 
   // Smooth scroll (fix for Safari & offset)
@@ -76,7 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const target = document.querySelector(link.getAttribute("href"));
       if (!target) return;
 
-      const offset = navbar.offsetHeight;
+      const offset = (topNavbar ? topNavbar.offsetHeight : 0) + 10;
+
       const top = target.offsetTop - offset;
 
       window.scrollTo({
@@ -88,10 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Scrollspy (dynamic offset)
   const activateLink = () => {
-    const navbarHeight = navbar.offsetHeight;
+    const navbarHeight = topNavbar ? topNavbar.offsetHeight : 0;
 
-    const offset =
-      window.innerWidth < 768 ? navbarHeight - 5 : navbarHeight + 10;
+    const offset = navbarHeight + 80;
 
     const position = window.scrollY + offset;
 
@@ -111,8 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
           l.classList.add("text-gray-900", "dark:text-white");
         });
 
-        const active = document.querySelector(`nav a[href="#${section.id}"]`);
-        if (active) {
+        const activeLinks = document.querySelectorAll(
+          `#top-navbar a[href="#${section.id}"], #bottom-navbar a[href="#${section.id}"]`
+        );
+
+        activeLinks.forEach((active) => {
           active.classList.remove("dark:text-white", "text-gray-900");
           active.classList.add(
             "text-orange-400",
@@ -121,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "md:dark:text-orange-500",
             "font-semibold"
           );
-        }
+        });
       }
     });
   };
