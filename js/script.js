@@ -140,34 +140,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Dark Mode Toggle
 const themeToggle = document.getElementById("theme-toggle");
+const root = document.documentElement;
 
-// Load saved theme from localStorage
-if (localStorage.getItem("theme") === "dark") {
-  document.documentElement.classList.add("dark");
+// Load saved theme
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+  root.classList.add("dark");
 } else {
-  document.documentElement.classList.remove("dark");
+  root.classList.remove("dark");
 }
 
-// Toggle theme on button click
+// Toggle theme on click
 themeToggle.addEventListener("click", () => {
-  document.documentElement.classList.toggle("dark");
+  const isDark = root.classList.toggle("dark");
 
-  // Save user preference
-  if (document.documentElement.classList.contains("dark")) {
-    localStorage.setItem("theme", "dark");
-    themeToggle.textContent = "☀️";
-  } else {
-    localStorage.setItem("theme", "light");
-    themeToggle.textContent = "🌙";
-  }
+  // Save preference
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 });
-
-// Update icon based on current theme on load
-if (document.documentElement.classList.contains("dark")) {
-  themeToggle.textContent = "☀️";
-} else {
-  themeToggle.textContent = "🌙";
-}
 
 // Navbar menu toggle for mobile
 //
